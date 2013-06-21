@@ -91,6 +91,7 @@ class TasksListController < UIViewController
     @newTaskController = NewTaskController.alloc.init
     @newTaskNavigationController = UINavigationController.alloc.init
     @newTaskNavigationController.pushViewController(@newTaskController, animated:false)
+    @newTaskNavigationController.navigationBar.configureFlatNavigationBarWithColor(UIColor.midnightBlueColor)
 
     self.presentModalViewController(@newTaskNavigationController, animated:true)
   end

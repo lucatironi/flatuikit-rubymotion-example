@@ -35,6 +35,7 @@ class LoginController < Formotion::FormController
     super
 
     self.title = "Login"
+    ThemeManager.customizeTableView(self.tableView)
   end
 
   def login

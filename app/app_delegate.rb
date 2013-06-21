@@ -1,6 +1,11 @@
 class AppDelegate
 
   def application(application, didFinishLaunchingWithOptions:launchOptions)
+    ThemeManager.customizeAppAppearance
+    UIBarButtonItem.configureFlatButtonsWithColor(UIColor.peterRiverColor,
+                                 highlightedColor:UIColor.belizeHoleColor,
+                                     cornerRadius:0)
+
     @window = UIWindow.alloc.initWithFrame(UIScreen.mainScreen.bounds)
 
     @navigationController = UINavigationController.alloc.init
@@ -15,6 +20,10 @@ class AppDelegate
     end
 
     return true
+  end
+
+  def sharedTheme
+    @sharedTheme ||= FlatUITheme.new
   end
 
   def showWelcomeController

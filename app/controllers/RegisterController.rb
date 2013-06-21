@@ -49,6 +49,7 @@ class RegisterController < Formotion::FormController
     super
 
     self.title = "Register"
+    ThemeManager.customizeTableView(self.tableView)
   end
 
   def register

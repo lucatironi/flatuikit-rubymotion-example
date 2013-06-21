@@ -13,18 +13,27 @@ class WelcomeController < UIViewController
     @containerView = UIView.alloc.initWithFrame([[0, 50], [self.view.frame.size.width, 100]])
 
     @welcomeTitleLabel = UILabel.alloc.initWithFrame([[10, 10], [self.view.frame.size.width - 20, 20]])
-    @welcomeTitleLabel.font = UIFont.boldSystemFontOfSize(20)
+    @welcomeTitleLabel.font = UIFont.boldFlatFontOfSize(20)
+    @welcomeTitleLabel.color = UIColor.asbestosColor
     @welcomeTitleLabel.text = 'Welcome to the App!'
 
     @containerView.addSubview(@welcomeTitleLabel)
 
     @welcomeLabel = UILabel.alloc.initWithFrame([[10, 35], [self.view.frame.size.width - 20, 20]])
+    @welcomeLabel.font = UIFont.boldFlatFontOfSize(16)
+    @welcomeLabel.color = UIColor.concreteColor
     @welcomeLabel.text = 'Please select an option to start using it!'
 
     @containerView.addSubview(@welcomeLabel)
 
-    @registerButton = UIButton.buttonWithType(UIButtonTypeRoundedRect)
-    @registerButton.frame = [[10, 65], [(self.view.frame.size.width  / 2) - 15, 40]]
+    @registerButton = FUIButton.alloc.initWithFrame([[10, 65], [(self.view.frame.size.width  / 2) - 15, 40]])
+    @registerButton.buttonColor = UIColor.turquoiseColor
+    @registerButton.shadowColor = UIColor.greenSeaColor
+    @registerButton.shadowHeight = 3
+    @registerButton.cornerRadius = 0
+    @registerButton.titleLabel.font = UIFont.boldFlatFontOfSize(16)
+    @registerButton.setTitleColor(UIColor.cloudsColor, forState:UIControlStateNormal)
+    @registerButton.setTitleColor(UIColor.cloudsColor, forState:UIControlStateHighlighted)
     @registerButton.setTitle('Register', forState: UIControlStateNormal)
     @registerButton.addTarget(self,
                               action:'register',
@@ -32,8 +41,14 @@ class WelcomeController < UIViewController
 
     @containerView.addSubview(@registerButton)
 
-    @loginButton = UIButton.buttonWithType(UIButtonTypeRoundedRect)
-    @loginButton.frame = [[(self.view.frame.size.width  / 2) + 5, 65], [(self.view.frame.size.width  / 2) - 15, 40]]
+    @loginButton = FUIButton.alloc.initWithFrame([[(self.view.frame.size.width  / 2) + 5, 65], [(self.view.frame.size.width  / 2) - 15, 40]])
+    @loginButton.buttonColor = UIColor.turquoiseColor
+    @loginButton.shadowColor = UIColor.greenSeaColor
+    @loginButton.shadowHeight = 3
+    @loginButton.cornerRadius = 0
+    @loginButton.titleLabel.font = UIFont.boldFlatFontOfSize(16)
+    @loginButton.setTitleColor(UIColor.cloudsColor, forState:UIControlStateNormal)
+    @loginButton.setTitleColor(UIColor.cloudsColor, forState:UIControlStateHighlighted)
     @loginButton.setTitle('Login', forState: UIControlStateNormal)
     @loginButton.addTarget(self,
                            action:'login',
