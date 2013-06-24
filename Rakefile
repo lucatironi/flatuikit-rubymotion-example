@@ -7,7 +7,7 @@ Bundler.require
 
 Motion::Project::App.setup do |app|
   # Use `rake config' to see complete project settings.
-  app.name = 'AuthExample'
+  app.name = 'FlatUIKitRubymotionExample'
   app.identifier = 'com.example.flatuikit-rubymotion'
   app.device_family = :iphone
   app.interface_orientations = [:portrait]
