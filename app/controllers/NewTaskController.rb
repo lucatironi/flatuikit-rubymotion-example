@@ -29,8 +29,7 @@ class NewTaskController < Formotion::FormController
     self.title = "New Task"
     ThemeManager.customizeTableView(self.tableView)
 
-    cancelButton = UIBarButtonItem.alloc.initWithTitle("Cancel",
-                                                       style:UIBarButtonItemStylePlain,
+    cancelButton = UIBarButtonItem.alloc.initWithBarButtonSystemItem(UIBarButtonSystemItemCancel,
                                                        target:self,
                                                        action:'cancel')
     self.navigationItem.rightBarButtonItem = cancelButton

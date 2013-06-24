@@ -1,10 +1,11 @@
 class AppDelegate
 
   def application(application, didFinishLaunchingWithOptions:launchOptions)
+    UIBarButtonItem.configureFlatButtonsWithColor(sharedTheme.flatButtonColor,
+                                 highlightedColor:sharedTheme.flatHighlightedButtonColor,
+                                     cornerRadius:sharedTheme.buttonCornerRadius)
+
     ThemeManager.customizeAppAppearance
-    UIBarButtonItem.configureFlatButtonsWithColor(UIColor.peterRiverColor,
-                                 highlightedColor:UIColor.belizeHoleColor,
-                                     cornerRadius:0)
 
     @window = UIWindow.alloc.initWithFrame(UIScreen.mainScreen.bounds)
 
@@ -32,7 +33,7 @@ class AppDelegate
     @welcomeNavigationController.pushViewController(@welcomeController, animated:false)
 
     TasksListController.controller.presentModalViewController(@welcomeNavigationController,
-                                                              animated:true)
+                                                              animated:false)
   end
 
   def logout

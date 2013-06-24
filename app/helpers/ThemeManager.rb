@@ -3,9 +3,8 @@ class ThemeManager
   def self.customizeAppAppearance
     theme = UIApplication.sharedApplication.delegate.sharedTheme
 
-    statusBarStyle = theme.statusBarStyle
-    if statusBarStyle
-      UIApplication.sharedApplication.setStatusBarStyle(statusBarStyle, animated:false)
+    if theme.statusBarStyle
+      UIApplication.sharedApplication.setStatusBarStyle(theme.statusBarStyle, animated:false)
     end
 
     navigationBackgroundForBarMetricsDefault = theme.navigationBackgroundForBarMetrics(UIBarMetricsDefault)
@@ -243,6 +242,33 @@ class ThemeManager
     UISegmentedControl.appearance.setTitleTextAttributes(titleTextAttributesH, forState:UIControlStateHighlighted)
     UISearchBar.appearance.setScopeBarButtonTitleTextAttributes(titleTextAttributesH, forState:UIControlStateHighlighted)
 
+    if theme.cellBackgroundColor
+      cellBackgroundView = FUICellBackgroundView.new
+      cellBackgroundView.backgroundColor = theme.cellBackgroundColor
+      cellBackgroundView.setCornerRadius(theme.cellCornerRadius) if theme.cellCornerRadius
+      cellBackgroundView.setSeparatorHeight(theme.cellSeparatorHeight) if theme.cellSeparatorHeight
+      UITableViewCell.appearance.setBackgroundView(cellBackgroundView)
+    end
+
+    if theme.cellSelectedBackgroundColor
+      selectedCellBackgroundView = FUICellBackgroundView.new
+      selectedCellBackgroundView.backgroundColor = theme.cellSelectedBackgroundColor
+      selectedCellBackgroundView.setCornerRadius(theme.cellCornerRadius) if theme.cellCornerRadius
+      selectedCellBackgroundView.setSeparatorHeight(theme.cellSeparatorHeight) if theme.cellSeparatorHeight
+      UITableViewCell.appearance.setSelectedBackgroundView(selectedCellBackgroundView)
+    end
+
+    if theme.defaultFont
+      UITableViewCell.appearance.setFont(theme.defaultFont)
+      UITextField.appearance.setFont(theme.defaultFont)
+      UILabel.appearance.setFont(theme.defaultFont)
+    end
+
+    if theme.cellTextColor
+      UITextField.appearance.setTextColor(theme.cellTextColor)
+      UITableViewCell.appearance.setBackgroundColor(UIColor.clearColor)
+    end
+
     if theme.baseTintColor
       UINavigationBar.appearance.setTintColor(theme.baseTintColor)
       UIBarButtonItem.appearance.setTintColor(theme.baseTintColor)
@@ -283,33 +309,6 @@ class ThemeManager
 
     if theme.cellSeparatorColor
       tableView.setSeparatorColor(theme.cellSeparatorColor)
-    end
-
-    if theme.cellBackgroundColor
-      cellBackgroundView = FUICellBackgroundView.new
-      cellBackgroundView.backgroundColor = theme.cellBackgroundColor
-      cellBackgroundView.setCornerRadius(theme.cellCornerRadius) if theme.cellCornerRadius
-      cellBackgroundView.setSeparatorHeight(theme.cellSeparatorHeight) if theme.cellSeparatorHeight
-      UITableViewCell.appearance.setBackgroundView(cellBackgroundView)
-    end
-
-    if theme.cellSelectedBackgroundColor
-      selectedCellBackgroundView = FUICellBackgroundView.new
-      selectedCellBackgroundView.backgroundColor = theme.cellSelectedBackgroundColor
-      selectedCellBackgroundView.setCornerRadius(theme.cellCornerRadius) if theme.cellCornerRadius
-      selectedCellBackgroundView.setSeparatorHeight(theme.cellSeparatorHeight) if theme.cellSeparatorHeight
-      UITableViewCell.appearance.setSelectedBackgroundView(selectedCellBackgroundView)
-    end
-
-    if theme.defaultFont
-      UITableViewCell.appearance.setFont(theme.defaultFont)
-      UITextField.appearance.setFont(theme.defaultFont)
-      UILabel.appearance.setFont(theme.defaultFont)
-    end
-
-    if theme.cellTextColor
-      UITextField.appearance.setTextColor(theme.cellTextColor)
-      UITableViewCell.appearance.setBackgroundColor(UIColor.clearColor)
     end
   end
 

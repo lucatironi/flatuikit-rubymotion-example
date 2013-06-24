@@ -51,23 +51,7 @@ class DefaultTheme
     return nil
   end
 
-  def defaultBiggestFont
-    return nil
-  end
-
-  def defaultBiggerFont
-    return nil
-  end
-
   def defaultSmallFont
-    return nil
-  end
-
-  def defaultSmallerFont
-    return nil
-  end
-
-  def defaultSmallestFont
     return nil
   end
 

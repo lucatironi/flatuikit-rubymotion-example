@@ -8,24 +8,8 @@ class FlatUITheme < DefaultTheme
     return UIFont.boldFlatFontOfSize(16)
   end
 
-  def defaultBiggestFont
-    return UIFont.boldFlatFontOfSize(28)
-  end
-
-  def defaultBiggerFont
-    return UIFont.boldFlatFontOfSize(24)
-  end
-
   def defaultSmallFont
     return UIFont.boldFlatFontOfSize(13)
-  end
-
-  def defaultSmallerFont
-    return UIFont.boldFlatFontOfSize(10)
-  end
-
-  def defaultSmallestFont
-    return UIFont.boldFlatFontOfSize(16)
   end
 
   def navigationFont
@@ -46,6 +30,18 @@ class FlatUITheme < DefaultTheme
 
   def navigationBackgroundForBarMetricsLandscape(barMetrics)
     return imageWithColor(UIColor.midnightBlueColor)
+  end
+
+  def flatButtonColor
+    return UIColor.peterRiverColor
+  end
+
+  def flatHighlightedButtonColor
+    return UIColor.belizeHoleColor
+  end
+
+  def buttonCornerRadius
+    return 2
   end
 
   def backgroundColor
@@ -73,7 +69,7 @@ class FlatUITheme < DefaultTheme
   end
 
   def cellSeparatorHeight
-    return 2
+    return 1
   end
 
   def cellCornerRadius

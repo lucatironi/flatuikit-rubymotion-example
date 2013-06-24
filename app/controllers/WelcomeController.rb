@@ -7,6 +7,8 @@ class WelcomeController < UIViewController
   def viewDidLoad
     super
 
+    theme = UIApplication.sharedApplication.delegate.sharedTheme
+
     self.title = "Welcome"
     self.view.backgroundColor = UIColor.whiteColor
 
@@ -30,7 +32,7 @@ class WelcomeController < UIViewController
     @registerButton.buttonColor = UIColor.turquoiseColor
     @registerButton.shadowColor = UIColor.greenSeaColor
     @registerButton.shadowHeight = 3
-    @registerButton.cornerRadius = 0
+    @registerButton.cornerRadius = theme.buttonCornerRadius
     @registerButton.titleLabel.font = UIFont.boldFlatFontOfSize(16)
     @registerButton.setTitleColor(UIColor.cloudsColor, forState:UIControlStateNormal)
     @registerButton.setTitleColor(UIColor.cloudsColor, forState:UIControlStateHighlighted)
@@ -45,7 +47,7 @@ class WelcomeController < UIViewController
     @loginButton.buttonColor = UIColor.turquoiseColor
     @loginButton.shadowColor = UIColor.greenSeaColor
     @loginButton.shadowHeight = 3
-    @loginButton.cornerRadius = 0
+    @loginButton.cornerRadius = theme.buttonCornerRadius
     @loginButton.titleLabel.font = UIFont.boldFlatFontOfSize(16)
     @loginButton.setTitleColor(UIColor.cloudsColor, forState:UIControlStateNormal)
     @loginButton.setTitleColor(UIColor.cloudsColor, forState:UIControlStateHighlighted)
